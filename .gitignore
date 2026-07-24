@@ -27,3 +27,6 @@ analysis/
 # OS
 .DS_Store
 Thumbs.db
+
+# KiCad auto-backups
+*-backups/
