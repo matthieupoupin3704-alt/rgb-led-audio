@@ -1,0 +1,26 @@
+# KiCad backups & caches
+*.bak
+*.bck
+*-backups/
+*.kicad_prl
+fp-info-cache
+~*.*
+*.lck
+_autosave-*
+
+# KiCad temporary / generated
+*.net
+*.xml
+*-erc.rpt
+*-drc.rpt
+
+# kicad-happy analysis output (regenerable)
+analysis/
+!analysis/manifest.json
+
+# History plugin
+.history/
+
+# OS
+.DS_Store
+Thumbs.db
