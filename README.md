@@ -4,6 +4,8 @@ Raspberry Pi HAT driving a 5 V analog RGB LED strip (common anode) from an ESP32
 
 Built to replace the cheap IR controller shipped with a generic 4-pin RGB strip.
 
+![PCB 3D render](images/pcb-iso.png)
+
 > **Status:** schematic and layout complete, fabrication files ready. **Not yet ordered, never physically built** (the PCB costs 2 €, the assembly costs 131 €, and I have 2 €). Nothing here has been validated on real hardware.
 
 ---
@@ -54,6 +56,12 @@ Avoided throughout: GPIO26-37 (flash + octal PSRAM), strapping pins (0/3/45/46),
 ⚠️ **Never plug the Pi's own USB power in while the barrel jack is connected.** Two sources on one rail.
 
 **J3 placement comes from a physical measurement of a Pi 3B**, not from a spec sheet. If a board ever gets built and doesn't seat correctly, check this first.
+
+## Renders
+
+| Top | Bottom |
+|-----|--------|
+| ![Top](images/pcb-top.png) | ![Bottom](images/pcb-bottom.png) |
 
 ## Repository layout
 

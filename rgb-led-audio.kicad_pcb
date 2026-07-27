@@ -121,9 +121,9 @@
 			(subtractmaskfromsilk no)
 			(outputformat 1)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "/Users/matthieupoupin/Downloads/rgb_files/")
 		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
@@ -2540,7 +2540,7 @@
 		(property "Reference" "J3"
 			(at -5 0.13 180)
 			(layer "F.SilkS")
-			(uuid "abe03a61-dbf6-4e52-a175-62edc546c99b")
+			(uuid "75e809a0-7bc8-4769-9283-ead897387186")
 			(effects
 				(font
 					(size 1 1)
@@ -2552,7 +2552,7 @@
 			(at -1.27 51.03 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "10e45122-bfb8-4b78-8f5d-db3e85a3b85e")
+			(uuid "6e8b13df-2735-40cb-bc2b-48021504bf52")
 			(effects
 				(font
 					(size 1 1)
@@ -2564,7 +2564,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2f7c499b-e5d0-4b81-9ae0-1c6c6e68b0bc")
+			(uuid "0d6f4bb9-8ff4-4107-9439-6b6177c5338d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2575,7 +2575,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0f5bca81-b652-4be5-91ac-ad73ec1f7ddf")
+			(uuid "79caadb4-8657-4ff7-b738-912177076c60")
 			(effects
 				(font
 					(size 1.27 1.27)
