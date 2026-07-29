@@ -100,12 +100,6 @@ Avoided throughout: GPIO26-37 (flash + octal PSRAM), strapping pins (0/3/45/46),
 |-----|--------|
 | ![Top](images/pcb-3d-top.png) | ![Bottom](images/pcb-3d-bottom.png) |
 
-Copper and outline, straight from the layout editor:
-
-| Front | Back |
-|-------|------|
-| ![F.Cu](images/pcb-layout-top.png) | ![B.Cu](images/pcb-layout-bottom.png) |
-
 Schematic: [PDF](hardware-schematic.pdf) or [PNG](images/schematic.png).
 
 ## Repository layout
