@@ -21,6 +21,9 @@ _autosave-*
 analysis/
 !analysis/manifest.json
 
+# Silkscreen gerbers: 31 MB of halftone artwork, regenerable from the .kicad_pcb
+fab/gerbers/*_Silkscreen.*
+
 # History plugin
 .history/
 
