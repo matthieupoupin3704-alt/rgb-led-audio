@@ -2,7 +2,7 @@
 
 Vector art for the F.Silkscreen layer, generated with `potrace` + PIL from raster sources.
 
-## The constraint that drives everything
+## Main constraint
 
 JLCPCB prints down to **0.15 mm** feature size. Anything finer is silently deleted during fabrication, so a halftone whose dots fall below that threshold comes back as a grey smudge rather than an image. Every file here is characterised against that limit.
 
@@ -18,9 +18,9 @@ JLCPCB prints down to **0.15 mm** feature size. Anything finer is silently delet
 
 ## Why most halftones fail
 
-Retramer an existing halftone at printable dot pitch destroys the image: the source trame is far finer than 0.15 mm, so coarsening it enough to print erases the structure that made it readable. `lily_halftone.svg` works only because its source was already coarse.
+Re-screening an existing halftone at a printable dot pitch destroys the image: the source screen is much finer than 0.15 mm, so coarsening it enough to print erases the structure that made it readable. `lily_halftone.svg` works only because its source was already coarse.
 
-If you want halftone aesthetics, either start from a coarse source or accept solid shapes.
+For a halftone look, start from a coarse source; otherwise use solid shapes.
 
 ## Importing
 

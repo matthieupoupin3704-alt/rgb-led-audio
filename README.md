@@ -6,7 +6,7 @@ Built to replace the cheap IR controller shipped with a generic 4-pin RGB strip.
 
 ![PCB 3D render](images/pcb-3d-iso.png)
 
-> **Status:** schematic and layout complete, fabrication files ready. **Not yet ordered, never physically built** (the PCB costs 2 €, the assembly costs 131 €, and I have 2 €). Nothing here has been validated on real hardware.
+> **Status:** schematic and layout complete, fabrication files ready. The board has not been ordered or built yet (bare PCBs cost about 2 €, the assembled version about 131 €), so nothing here has been validated on real hardware.
 
 ---
 
@@ -54,11 +54,11 @@ Six exposed 1.5 mm pads, silkscreen-labelled, reachable with the HAT seated on a
 | TP3 | +3V3 | LDO output. If this is dead, nothing else can work |
 | TP4 | GND | Second reference, board top-right |
 | TP5 | CHIP_EN | Validates the 10 k/1 µF reset network. Held low = silent board |
-| TP6 | IO0 | Boot mode. Separates "download mode" from "actually dead" |
+| TP6 | IO0 | Boot mode. Distinguishes download mode from a board that does not start |
 
 Two grounds sit diagonally opposite so a probe is never far from a reference.
 
-The three PWM channels have **no dedicated pads**, and don't need any. Gates are readable on the Rg resistor pads (R6/R8/R10, 0603), and drains on the J2 strip header (1×4, 2.54 mm). Measuring both on one channel is what separates a firmware fault from a MOSFET fault.
+The three PWM channels have no dedicated pads because they are not needed: the gates can be probed on the Rg resistor pads (R6/R8/R10, 0603) and the drains on the J2 strip header (1×4, 2.54 mm). Measuring both on one channel separates a firmware fault from a MOSFET fault.
 
 ## Bring-up procedure
 
@@ -86,11 +86,11 @@ Avoided throughout: GPIO26-37 (flash + octal PSRAM), strapping pins (0/3/45/46),
 
 **Soldered module, not a dev board.** The goal of this board was to learn ESP32 routing: RF keep-out, native USB-C, regulator, boot/reset. A socketed DevKit would have skipped exactly the parts worth learning. JLC assembly removes the reflow risk on the module's thermal pad, leaving the layout as the only variable.
 
-**Audio processing lives on the Pi.** Originally planned as a WLED FFT usermod in C++; moved to Python on the Pi instead. Sampling a digital source beats re-recording it through the air, and if the Pi is already running for ambilight, an onboard mic is redundant. The I2S header stays as a fallback (accepts an INMP441 or an S/PDIF receiver).
+**Audio processing lives on the Pi.** Originally planned as a WLED FFT usermod in C++; moved to Python on the Pi instead. Sampling the digital source is more accurate than recording it through a microphone, and since the Pi already runs for the ambilight, an onboard mic would be redundant. The I2S header stays as a fallback (accepts an INMP441 or an S/PDIF receiver).
 
 **Single 5 V supply.** The HAT feeds the Pi through header pins 2/4. Powering the strip from the Pi's own supply doesn't work: the official 2.5 A brick is already marginal, and the GPIO header isn't sized for another 1 A. USB-C PD was ruled out too: 3 A ceiling with no headroom against a ~2.55 A budget.
 
-⚠️ **Never plug the Pi's own USB power in while the barrel jack is connected.** Two sources on one rail.
+**Warning:** never plug in the Pi's own USB power while the barrel jack is connected, as this puts two sources on the same rail.
 
 **J3 placement comes from a physical measurement of a Pi 3B**, not from a spec sheet. If a board ever gets built and doesn't seat correctly, check this first.
 
@@ -121,7 +121,7 @@ Accepted warnings:
 | Warning | Rationale |
 |---------|-----------|
 | **No fiducials** (42 SMD components) | JLC assembles boards of this class without them. Adding three would cost nothing and is worth doing on a revision. |
-| **Components near the board edge** (C1 0.97 mm, SW1 0.6 mm, J3 0.53 mm) | All above JLC's 0.5 mm recommendation. J3 in particular is placed from a physical measurement of a Pi 3B: alignment wins over clearance. |
+| **Components near the board edge** (C1 0.97 mm, SW1 0.6 mm, J3 0.53 mm) | All above JLC's 0.5 mm recommendation. J3 is positioned to match the Pi header (see Design notes), so alignment takes priority over clearance. |
 | **No ESD/TVS on VBUS** | The USB-C port is development-only and stays on a desk. Worth adding on a revision that leaves the bench. |
 
 VBUS carries a 100 nF decoupling cap (C10) next to J1. A bulk cap would be redundant against the 220 µF already on the 5 V rail.
@@ -160,7 +160,7 @@ Through-hole connectors (J2 1×4, J3 2×20 socket, J4 1×6, J5) are meant to be 
 
 Every symbol carries its LCSC code as a schematic property, so the BOM regenerates from KiCad without a manual mapping step.
 
-⚠️ The files under `fab/` predate the test points and C10. **Re-export Gerbers, BOM and CPL before ordering.**
+**Warning:** the files under `fab/` predate the test points and C10. Re-export the Gerbers, BOM and CPL before ordering.
 
 Sourcing notes: on PPTC fuses the number in the part code is in **centiamps** (BSMD1812-**300** = 3 A). Most LCSC barrel jacks are rated 500 mA, which is insufficient here.
 

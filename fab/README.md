@@ -37,8 +37,8 @@ Do not apply it a second time. If you regenerate the CPL from KiCad, you must re
 
 ## Expected warnings
 
-- **J2, J3, J4, J5 missing from the CPL** : intentional, they are through-hole and hand-soldered. Click Continue.
-- **J3 is 0.23 mm from the board edge** : accepted, see the DRC section in the main README.
+- **J2, J3, J4, J5 missing from the CPL**: intentional, they are through-hole and hand-soldered. Click Continue.
+- **J3 close to the board edge**: accepted, see the DRC section in the main README for the current clearance.
 
 ## Not included
 
