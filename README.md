@@ -6,7 +6,7 @@ Built to replace the cheap IR controller shipped with a generic 4-pin RGB strip.
 
 ![PCB 3D render](images/pcb-3d-iso.png)
 
-> **Status:** schematic and layout complete, fabrication files ready. The board has not been ordered or built yet (bare PCBs cost about 2 €, the assembled version about 131 €), so nothing here has been validated on real hardware.
+> **Status:** schematic and layout complete, fabrication files ready. **Not yet ordered, never physically built** (the PCB costs 2 €, the assembly costs 131 €, and I have 2 €). Nothing here has been validated on real hardware.
 
 ---
 
